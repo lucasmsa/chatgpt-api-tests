@@ -9,6 +9,12 @@ const app = express();
 
 app.use(express.json());
 
+app.get('/', (request: Request, response: Response) => {
+  response.json({
+    message: 'OK - This is the API for the ChatGPT Test project ✅',
+  });
+});
+
 app.post('/', async (request: Request, response: Response) => {
   const { age, genre, interests } = request.body;
 

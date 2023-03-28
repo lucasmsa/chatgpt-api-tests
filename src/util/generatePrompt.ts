@@ -4,12 +4,20 @@ interface GenerateGiftsPrompt {
   interests: string;
 }
 
+export interface Prompt {
+  role: string;
+  content: string;
+}
+
 export function generateGiftsPrompt({
   age,
   genre,
   interests,
-}: GenerateGiftsPrompt): string {
-  return `
-    I would like to buy a gift for a ${age} year old ${genre} who likes ${interests}.
-  `;
+}: GenerateGiftsPrompt): Prompt[] {
+  return [
+    {
+      role: 'user',
+      content: `I would like to buy a gift for a ${age} year old ${genre} who likes ${interests}.`,
+    },
+  ];
 }
